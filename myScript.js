@@ -129,13 +129,13 @@ function addToCart(index){
 			<img src="${item.imgSrc}" alt="${item.name} - ${item.color}">
 			<div class="card-details">
 				<h3>${item.name} - ${item.color}</h3>
-				<p>$item.desc</p>
+				<p>${item.desc}</p>
 				<p><strong>${item.price}</strong></p>
 			</div>
 			<button class="remove-btn" onclick="removeFromCart(${index})">Remove</button>
 			`;
 			cartContainer.appendChild(card);
-		   }):
+		   });
 	   }
    }
    //Remove item FUNCTION
