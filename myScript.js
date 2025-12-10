@@ -104,3 +104,46 @@ function addToCart(index){
 	//Create alert box
 	alert(`${name} - ${color} has been added to your Cart!`);
 }
+/* ========================================
+   CART PAGE(DISPLAY CART ITEMS)
+   ======================================== */
+   //Access our content area
+   const cartContainer= document.getElementById('cart-items');
+   const emptyCartMsg= document.getElementById('empty-cart');
+  
+   if(cartContainer){
+	   //Access our cart items from the local storage 
+	   const cart=JSON.parse(localStorage.getItem('cart')) || [];
+	   
+	   if(cart.length==0){
+		   emptyCartMsg.style.display='block';
+	   }
+	   else{
+		   emptyCartMsg.style.display='none';
+		   //Loop through each item and assign it to a div and a class
+		   cart.forEach((item,index) => {
+			   const card = document.createElement('div');
+			   card.className='cart-item';
+			//Access each div created content 
+			card.innerHTML=`
+			<img src="${item.imgSrc}" alt="${item.name} - ${item.color}">
+			<div class="card-details">
+				<h3>${item.name} - ${item.color}</h3>
+				<p>$item.desc</p>
+				<p><strong>${item.price}</strong></p>
+			</div>
+			<button class="remove-btn" onclick="removeFromCart(${index})">Remove</button>
+			`;
+			cartContainer.appendChild(card);
+		   }):
+	   }
+   }
+   //Remove item FUNCTION
+   function removeFromCart(index){
+	   const cart=JSON.parse(localStorage.getItem('cart')) || [];
+	   //Remove item at the specified index
+	   cart.splice(index,1);
+	   localStorage.setItem('cart', JSON.stringify(cart));
+	   //Refresh our browser to update the Cart
+	   location.reload();	   
+   }
