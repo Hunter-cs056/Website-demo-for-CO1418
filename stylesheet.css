@@ -247,6 +247,46 @@ footer .container .links  a{
 	  padding:0.6em 1.2em;
 	  font-size:1em;
   }
-  
+    /* ========================================
+    CART PAGE
+   ======================================== */
+   /* Header and footer are already styled so now we need to just style the content section */  
+	.cart-container{
+		max-width:800px;
+		margin:auto;
+	}
+	.cart-item{
+		display:flex;
+		align-items: center;
+		justify-content:center;
+		border-bottom:1px solid lightgray;
+	
+	}
+	.cart-item img{
+		width:7em;
+		margin-right:1em;
+	}
+	.cart-details{
+		flex:1;
+	}
+	.remove-btn{
+	background: red;
+	color:white;
+	border:none;
+	border-radius:1em;
+	padding: 0.5em 0.5em;
+	cursor:pointer;
+	margin-left:1em;
+	}
+	.remove-btn:hover{
+		background: darkred;
+	}
+#cart-container h2{
+	color: #F2BE1A;
+	margin-left:2em;
+}
+.card-details h3{
+	color: #BE1622;
+}
 
    
